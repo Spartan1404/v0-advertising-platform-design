@@ -16,11 +16,12 @@ export interface Campaign {
   id: string
   name: string
   description: string | null
-  client_name: string
-  budget_usd: number
+  client_name: string | null
+  budget_usd: number | null
   start_date: string
-  end_date: string
+  end_date: string | null
   status: 'draft' | 'active' | 'paused' | 'completed'
+  priority: number
   is_active: boolean
   created_at: string
   updated_at: string
@@ -28,19 +29,18 @@ export interface Campaign {
 
 export interface Banner {
   id: string
-  campaign_id: string
-  ad_slot_id: string
+  campaign_id: string | null
+  ad_slot_id: string | null
   name: string
-  image_url: string
-  target_url: string
+  image_url: string | null
+  target_url: string | null
   alt_text: string | null
-  priority: number
   is_active: boolean
   created_at: string
   updated_at: string
   // Joined data
-  campaign?: Campaign
-  ad_slot?: AdSlot
+  campaign?: Campaign | null
+  ad_slot?: AdSlot | null
 }
 
 export interface TrackingEvent {
